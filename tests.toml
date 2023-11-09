@@ -1,0 +1,18 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/tests.v1.schema.json
+
+test_format = 1.0
+
+[default]
+
+    # ------------
+    # Tests to run
+    # ------------
+
+    exclude = ["install.multi"]
+
+    # -------------------------------
+    # Default args to use for install
+    # -------------------------------
+
+    args.token = "GR1348941_Rew7obt4p9jZyQUtHLx"
+    args.forgejo_url = "https://forgejo.com/"

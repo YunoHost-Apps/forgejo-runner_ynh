@@ -1,0 +1,73 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "forgejo-runner"
+name = "Forgejo Runner"
+description.en = "Runner for Forgejo based"
+description.fr = "Runner pour Forgejo basé"
+
+version = "3.0.3~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "MIT"
+admindoc = "https://forgejo.org/docs/next/admin/actions/#forgejo-runner"
+code = "https://code.forgejo.org/forgejo/runner"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = false
+
+ldap = false
+
+sso = false
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.token]
+    ask.en = "This token can be retrieved at this location: domain.tld/admin/actions/runners"
+    ask.fr = "Ce token peut être récupéré à cet emplacement : domain.tld/admin/actions/runners"
+    type = "string"
+    example = "xxxx"
+
+    [install.forgejo_url]
+    ask.en = "Please enter Forgejo instance URL"
+    ask.fr = "Veuillez entrer l'URL de votre instance Forgejo"
+    type = "string"
+    example = "https://domain.tld/forgejo"
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v3.0.3/forgejo-runner-3.0.3-linux-amd64"
+        amd64.sha256 = "f95fd971e1429b1e1eb24c5364e24ee695db0298d13ef5f7ee40c810ecac4797"
+        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v3.0.3/forgejo-runner-3.0.3-linux-arm64"
+        arm64.sha256 = "224e4043f98a1eb05cacf8d6a6c8ee6eff95c955478406634b7109a5a43834a6"
+        in_subdir = false
+        extract = false
+        rename = "forgejo-runner"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "ca-certificates, git, curl, tar"
+
+    extras.docker.repo = "https://download.docker.com/linux/debian bullseye stable"
+    extras.docker.key = "https://download.docker.com/linux/debian/gpg"
+    extras.docker.packages = "docker-ce, docker-ce-cli, containerd.io"

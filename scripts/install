@@ -1,0 +1,115 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+forgejo_url=$YNH_APP_ARG_FORGEJO_URL
+token=$YNH_APP_ARG_TOKEN
+docker_image="alpine:latest"
+
+#=================================================
+# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
+#=================================================
+ynh_script_progression --message="Validating installation parameters..."
+
+# By default, the runner will use docker to run your builds. PR are welcomes to implement more executors
+#executor="docker"
+
+# Adding a comma at the end
+#if [ ${forgejo_url: -1} != "," ]; then
+	forgejo_url=${forgejo_url},
+#fi
+
+# Adding a comma at the end
+#if [ ${token: -1} != "," ]; then
+	token=${token},
+#fi
+
+# Adding a comma at the end
+#if [ ${docker_image: -1} != "," ]; then
+	docker_image=${docker_image},
+#fi
+
+#=================================================
+# APP "BUILD" (DEPLOYING SOURCES, VENV, COMPILING ETC)
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression --message="Setting up source files..." --weight=1
+
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir"
+
+chown -R $app:www-data "$install_dir"
+chmod +x "$install_dir/forgejo-runner"
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+
+# Create a dedicated systemd config
+ynh_add_systemd_config
+
+yunohost service add $app --description="Runner for Forgejo" --log="/var/log/$app/$app.log"
+
+#=================================================
+# SETUP GITLAB RUNNER
+#=================================================
+#ynh_script_progression --message="Configuring Forgejo Runner..."
+
+# Can be registered several time, to do this give a list of forgejo_url, token and docker_image separated by a comma.
+#split_char=","
+
+#nb_to_register=$(echo "${forgejo_url}" | awk -F"${split_char}" '{print NF-1}')
+
+#for i in $(seq $nb_to_register)
+#do
+#	url=$(echo $forgejo_url | cut -d$split_char -f$i)
+#	tok=$(echo $token | cut -d$split_char -f$i)
+#	docker_img=$(echo $docker_image | cut -d$split_char -f$i)
+#
+#	# Register the runner
+#	ynh_exec_warn_less $app register \
+#		--non-interactive \
+#		--url "$url" \
+#		--registration-token "$tok" \
+#		--executor "$executor" \
+#		--docker-image "$docker_img" \
+#		--description "YunoHost runner" \
+#		--tag-list "$executor,$YNH_ARCH" \
+#		--run-untagged \
+#		--locked="false"
+#done
+
+#=================================================
+# APP INITIAL CONFIGURATION
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding a configuration file..." --weight=1
+
+pushd $install_dir
+	./forgejo-runner register --no-interactive --token $token --name runner #--instance $forgejo_url
+popd
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression --message="Starting a systemd service..." --weight=1
+
+# Start a systemd service
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+ynh_script_progression --message="Installation of $app completed" --last
