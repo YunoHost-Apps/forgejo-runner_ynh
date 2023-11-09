@@ -1,5 +1,5 @@
 [Unit]
-Description=Gitea Runner
+Description=Forgejo Runner
 After=network.target
 
 [Service]

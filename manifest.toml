@@ -21,9 +21,9 @@ yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = false
 
-ldap = false
+ldap = "not_relevant"
 
-sso = false
+sso = "not_relevant"
 
 disk = "50M"
 ram.build = "50M"
@@ -34,8 +34,8 @@ ram.runtime = "50M"
     type = "domain"
 
     [install.token]
-    ask.en = "This token can be retrieved at this location: domain.tld/admin/actions/runners"
-    ask.fr = "Ce token peut être récupéré à cet emplacement : domain.tld/admin/actions/runners"
+    ask.en = "This token can be retrieved at this location: https://forgejo.domain.tld/admin/actions/runners"
+    ask.fr = "Ce token peut être récupéré à cet emplacement : https://forgejo.domain.tld/admin/actions/runners"
     type = "string"
     example = "xxxx"
 
