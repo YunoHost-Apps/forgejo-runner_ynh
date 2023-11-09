@@ -9,7 +9,7 @@ test_format = 1.0
     # Tests to run
     # ------------
 
-    exclude = ["install.multi", "install.subdir", "install.nourl", "install.private", "install.multi"]
+    exclude = ["install.subdir", "change_url", "install.private", "install.multi"]
 
     # -------------------------------
     # Default args to use for install
