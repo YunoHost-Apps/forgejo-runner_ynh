@@ -1,0 +1,1 @@
+The Forgejo runner needs to connect to a Forgejo instance and must be registered before doing so. It will give it permission to read the repositories and send back information to Forgejo such as the logs or its status.
