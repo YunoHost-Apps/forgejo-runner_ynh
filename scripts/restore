@@ -27,8 +27,6 @@ chmod +x "$install_dir/forgejo-runner"
 #=================================================
 ynh_script_progression --message="Restoring system configurations related to $app..." --weight=1
 
-#ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
-
 ynh_restore_file --origin_path="/etc/systemd/system/$app.service"
 systemctl enable $app.service --quiet
 

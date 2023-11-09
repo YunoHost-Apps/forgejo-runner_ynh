@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "forgejo-runner"
 name = "Forgejo Runner"
-description.en = "Runner for Forgejo based"
-description.fr = "Runner pour Forgejo basé"
+description.en = "Runner for Forgejo"
+description.fr = "Runner pour Forgejo"
 
 version = "3.0.3~ynh1"
 
