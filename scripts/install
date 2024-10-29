@@ -50,7 +50,7 @@ popd
 #=================================================
 # OTHER COMMANDS (needs to convert Yunohost style)
 #=================================================
-sudo apt install docker
+sudo apt install docker -y
 usermod -aG docker forgejo-runner
 
 
