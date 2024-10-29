@@ -48,6 +48,13 @@ pushd $install_dir
 popd
 
 #=================================================
+# OTHER COMMANDS (needs to convert Yunohost style)
+#=================================================
+sudo apt install docker
+usermod -aG docker forgejo-runner
+
+
+#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # START SYSTEMD SERVICE
