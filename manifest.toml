@@ -7,7 +7,7 @@ name = "Forgejo Runner"
 description.en = "Runner for Forgejo"
 description.fr = "Runner pour Forgejo"
 
-version = "5.0.3~ynh1"
+version = "5.0.3~ynh2"
 
 maintainers = ["eric_G", "asandikci"]
 
