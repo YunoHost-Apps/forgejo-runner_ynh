@@ -43,7 +43,7 @@ ram.runtime = "50M"
     ask.en = "Please enter Forgejo instance URL"
     ask.fr = "Veuillez entrer l'URL de votre instance Forgejo"
     type = "string"
-    example = "https://domain.tld/forgejo"
+    example = "https://forge.domain.tld"
 
     [install.runner_name]
     ask.en = "The runner's name visible on the forge"
