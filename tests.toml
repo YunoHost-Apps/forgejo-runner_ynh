@@ -4,7 +4,6 @@ test_format = 1.0
 
 [default]
 
-
     # ------------
     # Tests to run
     # ------------
@@ -17,3 +16,4 @@ test_format = 1.0
 
     args.token = "9nVFksmWnF3gWKvQrBSOkviZIQhE5aRv63BG4KJX"
     args.forgejo_url = "https://forgejo.com/"
+    args.runner_name = "runner"
