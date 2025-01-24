@@ -20,7 +20,7 @@
 
 Act runner is a runner for Gitea based on Gitea fork of act.
 
-**分发版本：** 3.0.3~ynh1
+**分发版本：** 6.2.0~ynh1
 
 ## 截图
 
