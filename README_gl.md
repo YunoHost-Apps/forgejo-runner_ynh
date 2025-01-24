@@ -20,7 +20,7 @@ NON debe editarse manualmente.
 
 Act runner is a runner for Gitea based on Gitea fork of act.
 
-**Versión proporcionada:** 3.0.3~ynh1
+**Versión proporcionada:** 6.2.0~ynh1
 
 ## Capturas de pantalla
 

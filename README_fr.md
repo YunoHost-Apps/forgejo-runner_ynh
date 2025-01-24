@@ -21,7 +21,7 @@ Il NE doit PAS être modifié à la main.
 Act runner est un coureur pour Gitea basé sur le fork d'act de Gitea.
 
 
-**Version incluse :** 3.0.3~ynh1
+**Version incluse :** 6.2.0~ynh1
 
 ## Captures d’écran
 
