@@ -37,11 +37,9 @@ yunohost service add $app --description="Runner for Forgejo" --log="/var/log/$ap
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-if [ ${PACKAGE_CHECK_EXEC:-0} -eq 1 ]; then
-	pushd $install_dir
-		./forgejo-runner register --instance $forgejo_url --token $token --name $runner_name --no-interactive
-	popd
-fi
+pushd $install_dir
+	./forgejo-runner register --instance $forgejo_url --token $token --name $runner_name --no-interactive
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
