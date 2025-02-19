@@ -5,7 +5,6 @@ source /usr/share/yunohost/helpers
 
 forgejo_url=$YNH_APP_ARG_FORGEJO_URL
 token=$YNH_APP_ARG_TOKEN
-docker_image="alpine:latest"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -15,6 +14,16 @@ ynh_script_progression "Setting up source files..."
 ynh_setup_source --dest_dir="$install_dir"
 
 chmod +x "$install_dir/forgejo-runner"
+
+#=================================================
+# SETUP GROUPS
+#=================================================
+ynh_script_progression "Adding groups to user..."
+#user needs access to yunohost ssl certs if no
+usermod -a -G ssl-cert "$app"
+#user need to access docker daemon
+usermod -a -G docker "$app"
+
 
 #=================================================
 # APP INITIAL CONFIGURATION
@@ -38,7 +47,7 @@ yunohost service add $app --description="Runner for Forgejo" --log="/var/log/$ap
 ynh_script_progression "Adding $app's configuration..."
 
 pushd $install_dir
-	./forgejo-runner register --instance $forgejo_url --token $token --name $runner_name --no-interactive
+	sudo -u $app ./forgejo-runner register --instance $forgejo_url --token $token --name $runner_name --no-interactive
 popd
 
 #=================================================
