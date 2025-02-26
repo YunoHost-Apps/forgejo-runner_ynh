@@ -7,7 +7,7 @@ name = "Forgejo Runner"
 description.en = "Runner for Forgejo"
 description.fr = "Runner pour Forgejo"
 
-version = "5.0.3~ynh2"
+version = "6.2.2~ynh1"
 
 maintainers = ["eric_G", "asandikci"]
 
@@ -50,10 +50,10 @@ ram.runtime = "50M"
     [resources.sources]
 
         [resources.sources.main]
-        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v5.0.3/forgejo-runner-5.0.3-linux-amd64"
-        amd64.sha256 = "d5d39f1c190b9868f1b9d66c7cdb6fac53486ca7ac3c3a81fc1c7759509bcee6"
-        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v5.0.3/forgejo-runner-5.0.3-linux-arm64"
-        arm64.sha256 = "2164918a001405aef0bd2dadfbd8122d451621240e599293d4ed797f6607207c"
+        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v6.2.2/forgejo-runner-6.2.2-linux-amd64"
+        amd64.sha256 = "b35e79d1bbe71df51eaef2e5b436572c77258bc5d271992fd786f6148294637f"
+        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v6.2.2/forgejo-runner-6.2.2-linux-arm64"
+        arm64.sha256 = "c6f6738b57be1608a645d3a201cf37840703f56dcda43abc5d802564c47d8bb4"
         in_subdir = false
         extract = false
         rename = "forgejo-runner"
