@@ -7,7 +7,7 @@ name = "Forgejo Runner"
 description.en = "Runner for Forgejo"
 description.fr = "Runner pour Forgejo"
 
-version = "3.0.3~ynh1"
+version = "11.1.1~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -17,15 +17,16 @@ admindoc = "https://forgejo.org/docs/next/admin/actions/#forgejo-runner"
 code = "https://code.forgejo.org/forgejo/runner"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 12.1.17"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = false
 
 ldap = "not_relevant"
 sso = "not_relevant"
 
-disk = "50M"
-ram.build = "50M"
+disk = "615M"
+ram.build = "250M"
 ram.runtime = "50M"
 
 [install]
@@ -42,17 +43,23 @@ ram.runtime = "50M"
     ask.en = "Please enter Forgejo instance URL"
     ask.fr = "Veuillez entrer l'URL de votre instance Forgejo"
     type = "string"
-    example = "https://domain.tld/forgejo"
+    example = "https://forge.domain.tld"
+
+    [install.runner_name]
+    ask.en = "The runner's name visible on the forge"
+    ask.fr = "Le nom de l'exécuteur visible sur la forge"
+    type = "string"
+    example = "runner"
 
 [resources]
 
     [resources.sources]
 
         [resources.sources.main]
-        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v3.0.3/forgejo-runner-3.0.3-linux-amd64"
-        amd64.sha256 = "f95fd971e1429b1e1eb24c5364e24ee695db0298d13ef5f7ee40c810ecac4797"
-        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v3.0.3/forgejo-runner-3.0.3-linux-arm64"
-        arm64.sha256 = "224e4043f98a1eb05cacf8d6a6c8ee6eff95c955478406634b7109a5a43834a6"
+        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v11.1.1/forgejo-runner-11.1.1-linux-amd64"
+        amd64.sha256 = "35d15b3dd1b05aa83a9ed5402bfaae1e1e91adc75252df4b338bba221330989a"
+        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v11.1.1/forgejo-runner-11.1.1-linux-arm64"
+        arm64.sha256 = "20e74f455becdc20e58f065e27b7b24b14a607702e8d2e187176a5e40a73276e"
         in_subdir = false
         extract = false
         rename = "forgejo-runner"
@@ -62,7 +69,6 @@ ram.runtime = "50M"
     [resources.install_dir]
 
     [resources.permissions]
-    main.url = "/"
 
     [resources.apt]
     packages = "ca-certificates, git, curl, tar"
