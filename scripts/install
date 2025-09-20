@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 forgejo_url=$YNH_APP_ARG_FORGEJO_URL
@@ -51,4 +50,5 @@ ynh_systemctl --service=$app --action="start" --log_path="systemd"
 #=================================================
 # END OF SCRIPT
 #=================================================
+
 ynh_script_progression "Installation of $app completed"
