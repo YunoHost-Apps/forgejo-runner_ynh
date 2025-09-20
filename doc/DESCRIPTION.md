@@ -1,1 +1,1 @@
-Act runner is a runner for Gitea based on Gitea fork of act.
+Forgejo runner is a daemon that connects to a Forgejo instance and runs jobs for continuous integration. 
