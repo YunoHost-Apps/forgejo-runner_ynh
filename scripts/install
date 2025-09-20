@@ -2,7 +2,6 @@
 
 source /usr/share/yunohost/helpers
 
-forgejo_url=$YNH_APP_ARG_FORGEJO_URL
 docker_image="alpine:latest"
 
 #=================================================
