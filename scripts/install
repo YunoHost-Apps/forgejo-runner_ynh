@@ -14,6 +14,16 @@ ynh_setup_source --dest_dir="$install_dir"
 chmod +x "$install_dir/forgejo-runner"
 
 #=================================================
+# SETUP GROUPS
+#=================================================
+ynh_script_progression "Adding groups to user..."
+#user needs access to yunohost ssl certs if no
+usermod -a -G ssl-cert "$app"
+#user need to access docker daemon
+usermod -a -G docker "$app"
+
+
+#=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."

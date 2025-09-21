@@ -30,9 +30,6 @@ ram.build = "250M"
 ram.runtime = "50M"
 
 [install]
-    [install.domain]
-    type = "domain"
-
     [install.token]
     ask.en = "This token can be retrieved at this location: https://forgejo.domain.tld/admin/actions/runners"
     ask.fr = "Ce token peut être récupéré à cet emplacement : https://forgejo.domain.tld/admin/actions/runners"
