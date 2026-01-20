@@ -13,13 +13,16 @@ maintainers = ["eric_G"]
 
 [upstream]
 license = "MIT"
-admindoc = "https://forgejo.org/docs/next/admin/actions/#forgejo-runner"
+website = "https://forgejo.org"
+demo = "https://code.forgejo.org"
+admindoc = "https://forgejo.org/docs/latest/admin/runner-installation/"
+userdoc = "https://forgejo.org/docs/latest/user/actions/#forgejo-runner"
 code = "https://code.forgejo.org/forgejo/runner"
 
 [integration]
 yunohost = ">= 12.1.38"
 helpers_version = "2.1"
-architectures = "all"
+architectures = ["amd64", "arm64"]
 multi_instance = false
 
 ldap = "not_relevant"
@@ -34,7 +37,6 @@ ram.runtime = "50M"
     ask.en = "This token can be retrieved at this location: https://forgejo.domain.tld/admin/actions/runners"
     ask.fr = "Ce token peut être récupéré à cet emplacement : https://forgejo.domain.tld/admin/actions/runners"
     type = "string"
-    example = "xxxx"
 
     [install.forgejo_url]
     ask.en = "Please enter Forgejo instance URL"
@@ -60,6 +62,10 @@ ram.runtime = "50M"
         in_subdir = false
         extract = false
         rename = "forgejo-runner"
+
+        autoupdate.strategy = "latest_forgejo_release"
+        autoupdate.asset.amd64 = "^forgejo-runner-.*-linux-amd64$"
+        autoupdate.asset.arm64 = "^forgejo-runner-.*-linux-arm64$"
 
     [resources.system_user]
 
