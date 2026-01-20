@@ -13,7 +13,10 @@ maintainers = ["eric_G"]
 
 [upstream]
 license = "MIT"
-admindoc = "https://forgejo.org/docs/next/admin/actions/#forgejo-runner"
+website = "https://forgejo.org"
+demo = "https://code.forgejo.org"
+admindoc = "https://forgejo.org/docs/latest/admin/runner-installation/"
+userdoc = "https://forgejo.org/docs/latest/user/actions/#forgejo-runner"
 code = "https://code.forgejo.org/forgejo/runner"
 
 [integration]
