@@ -64,6 +64,10 @@ ram.runtime = "50M"
         extract = false
         rename = "forgejo-runner"
 
+        autoupdate.strategy = "latest_forgejo_release"
+        autoupdate.asset.amd64 = "^forgejo-runner-.*-linux-amd64$"
+        autoupdate.asset.arm64 = "^forgejo-runner-.*-linux-arm64$"
+
     [resources.system_user]
 
     [resources.install_dir]
