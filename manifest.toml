@@ -37,7 +37,6 @@ ram.runtime = "50M"
     ask.en = "This token can be retrieved at this location: https://forgejo.domain.tld/admin/actions/runners"
     ask.fr = "Ce token peut être récupéré à cet emplacement : https://forgejo.domain.tld/admin/actions/runners"
     type = "string"
-    example = "xxxx"
 
     [install.forgejo_url]
     ask.en = "Please enter Forgejo instance URL"
