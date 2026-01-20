@@ -37,7 +37,6 @@ runner:
 
 cache:
   # Enable cache server to use actions/cache.
-"config.yaml"
   #   - /src/*.json
   # If you want to allow any volume, please use the following configuration:
   # valid_volumes:

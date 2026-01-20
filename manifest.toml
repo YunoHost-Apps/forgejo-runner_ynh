@@ -7,7 +7,7 @@ name = "Forgejo Runner"
 description.en = "Runner for Forgejo"
 description.fr = "Runner pour Forgejo"
 
-version = "11.1.1~ynh1"
+version = "15.5.3~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -17,7 +17,7 @@ admindoc = "https://forgejo.org/docs/next/admin/actions/#forgejo-runner"
 code = "https://code.forgejo.org/forgejo/runner"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = false
@@ -30,9 +30,6 @@ ram.build = "250M"
 ram.runtime = "50M"
 
 [install]
-    [install.domain]
-    type = "domain"
-
     [install.token]
     ask.en = "This token can be retrieved at this location: https://forgejo.domain.tld/admin/actions/runners"
     ask.fr = "Ce token peut être récupéré à cet emplacement : https://forgejo.domain.tld/admin/actions/runners"
@@ -56,10 +53,10 @@ ram.runtime = "50M"
     [resources.sources]
 
         [resources.sources.main]
-        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v11.1.1/forgejo-runner-11.1.1-linux-amd64"
-        amd64.sha256 = "35d15b3dd1b05aa83a9ed5402bfaae1e1e91adc75252df4b338bba221330989a"
-        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v11.1.1/forgejo-runner-11.1.1-linux-arm64"
-        arm64.sha256 = "20e74f455becdc20e58f065e27b7b24b14a607702e8d2e187176a5e40a73276e"
+        amd64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v12.5.3/forgejo-runner-12.5.3-linux-amd64"
+        amd64.sha256 = "a9973be2436d118efc0533fb3e6e98de62b86a55c016d03a4db7b1c036f70f31"
+        arm64.url = "https://code.forgejo.org/forgejo/runner/releases/download/v12.5.3/forgejo-runner-12.5.3-linux-arm64"
+        arm64.sha256 = "3956d2d6ec688c1798100176316f3ef1c80c829730b9375a2e869f6d162224b6"
         in_subdir = false
         extract = false
         rename = "forgejo-runner"

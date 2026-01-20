@@ -12,6 +12,16 @@ ynh_restore "$install_dir"
 chmod +x "$install_dir/forgejo-runner"
 
 #=================================================
+# SETUP GROUPS
+#=================================================
+ynh_script_progression "Adding groups to user..."
+
+#user needs access to yunohost ssl certs if no
+usermod -a -G ssl-cert "$app"
+#user need to access docker daemon
+usermod -a -G docker "$app"
+
+#=================================================
 # RESTORE SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Restoring system configurations related to $app..."
@@ -26,9 +36,7 @@ yunohost service add $app --description="Runner for Forgejo" --log="/var/log/$ap
 #=================================================
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
-ynh_systemctl --service=$app --action="start" --log_path="systemd"
-
-ynh_systemctl --service=nginx --action=reload
+ynh_systemctl --service=$app --action="start"
 
 #=================================================
 # END OF SCRIPT
