@@ -74,7 +74,7 @@ ram.runtime = "50M"
     [resources.permissions]
 
     [resources.apt]
-    packages = "ca-certificates, git, curl, tar"
+    packages = "ca-certificates, git, git-lfs, curl, tar"
 
     extras.docker.repo = "https://download.docker.com/linux/debian bullseye stable"
     extras.docker.key = "https://download.docker.com/linux/debian/gpg"
